@@ -1,5 +1,7 @@
 <?php
-	include_once 'dados_login.php';
+	//include_once 'dados_login.php';
+	include_once("config.php");
+	include_once("conection.php");
 ?>
 <!doctype html>
 <html>

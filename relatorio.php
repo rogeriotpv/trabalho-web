@@ -1,9 +1,6 @@
 <?php
 	include_once("config.php");
 	include_once("conection.php");
-	//$logged = $_SESSION['logged'] ?? NULL;
-
-	//if(!logged) die('Não está logado, realize o login caso não esteja cadastrado se cadastre.');
 ?>
 <!doctype html>
 <html>
@@ -31,52 +28,35 @@
 					</li>
 					<li class="menu">
 						<a href="imc.php">Calculo imc</a>
-					</li>v
+					</li>
+					<li class="selected">
+						<a href="relatorio.php">Relatorio imc</a>
+					</li>
 			</div>
 		</div>
+		<div id="body" class="home">
+			<div class="header">
+				<img src="images/telainicio.jfif" alt="">
+				<div>
+					<a href="imc.php">Calcular imc</a>
+				</div>
+			</div>
 			<div class="body">
 				<div>
-					<form action="" method="get">
-						<p>
-							Peso:<br>
-							<input type="text" name="peso" >
-						</p>
-						<p>
-							Altura(use pontuação ex:1.70):<br>
-							<input type="text" name="altura" >
-						</p>
-						<p>
-							<input type="submit" value="Enviar">
-						</p>
-					</form>
-						
-					<?php 
-						$peso = $_GET['peso'];
-						$altura = $_GET['altura'];
-						
-						$conta1 = $altura*$altura;
-						$conta2 = $peso/$conta1;
-						
-						$resultado = number_format($conta2);
-						
-						if(isset($_POST['acao'])){
-						$usuario = $_POST['usuario'];
-						$senha = $_POST['senha'];
-						
-
-						$pdo = new PDO('mysql:host=localhost;dbname=cadastro','root','');
-						$sql = $pdo->prepare("INSERT INTO `imc` VALUES (null,?)");
-						$sql->execute(array($conta2));
-						}						
-
-						if(isset($resultado) && $resultado != '0'){;	
-							echo '<h1>Seu IMC é:</h1>';
-							echo '<h2>'.$resultado.'</h2>';
-						}else{
-							echo '<h1>Por favor, utilize apenas numeros!</h1>';	
+					<div>
+						Lista dos resultados de imc:
+						<?php 
+						$pdo = new PDO('mysql::host=localhost;dbname=cadastro','root','');
+						$sql = $pdo->prepare("SELECT * FROM imc");
+						$sql->execute();
+						$info = $sql->fetchALL();
+						foreach($info as $key => $value){
+							echo '<br>imc<br>'.$value['imc'];
 						}
-					?>
+						?>
+					</div>
 				</div>
+			</div>
 			<div class="footer">
 				<div>
 					<ul>

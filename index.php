@@ -1,7 +1,9 @@
 <?php
-	$logged = $_SESSION['logged'] ?? NULL;
+	include_once("config.php");
+	include_once("conection.php");
+	//$logged = $_SESSION['logged'] ?? NULL;
 
-	if(!logged) die('Não está logado, realize o login caso não esteja cadastrado se cadastre.');
+	//if(!logged) die('Não está logado, realize o login caso não esteja cadastrado se cadastre.');
 ?>
 <!doctype html>
 <html>
@@ -29,14 +31,17 @@
 					</li>
 					<li class="menu">
 						<a href="imc.php">Calculo imc</a>
-					</li>v
+					</li>
+					<li class="selected">
+						<a href="relatorio.php">Relatorio imc</a>
+					</li>
 			</div>
 		</div>
 		<div id="body" class="home">
 			<div class="header">
 				<img src="images/telainicio.jfif" alt="">
 				<div>
-					<a href="login.html">Calcular imc</a>
+					<a href="imc.php">Calcular imc</a>
 				</div>
 			</div>
 			<div class="body">
@@ -70,6 +75,13 @@
 						<p>A obesidade é facilmente percebida quando uma pessoa come mais do que precisa e este excesso é armazenado em forma de gordura. Para ficar mais claro, quando as calorias que entram no corpo da pessoa forem maiores do que as calorias que saem, ela, consequentemente, engorda.<br>
 
 						Nas múltiplas etapas de desenvolvimento, o organismo é resultado de diversas interações entre a genética da pessoa e o ambiente em que ela está inserida.</p>
+						<br>
+
+						<p>Dessa maneira, uma criança cujos pais são obesos tem forte tendência de se tornar obesa, se não tomar os devidos cuidados. Ou quando a pessoa se torna sedentária, ou seja, deixa de praticar exercícios físicos, também entra para o grupo de pessoas com alto risco de doenças ocasionadas pela má nutrição.
+
+						A obesidade é causada por uma série de fatores que estimulam a ingestão de alimentos que contribuem para o aparecimento de doenças como diabetes, cálculos biliares, hipertensão, arteriosclerose, problemas nos rins, coluna, articulações e também alguns tipos de câncer.
+
+						Portanto, para aquelas pessoas que se alimentam com comidas congeladas, pré-fabricadas, muitos refrigerantes e fast food, é necessário uma dieta balanceada e cheia de nutrientes que façam com que o corpo funcione bem. Além disso, o acompanhamento médico é essencial para que a dieta seja bem executada e tenha resultados positivos.</p>
 					</div>
 				</div>
 			</div>
